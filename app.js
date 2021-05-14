@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 
-
+require('./config/mongoose')
 const PORT = 3000
 
 
@@ -15,5 +15,9 @@ app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+
+
+
+
 
 app.listen(PORT, () => { console.log(`Now is listening on http://localhost:${PORT}`) })
