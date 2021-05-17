@@ -1,0 +1,42 @@
+<div class="d-flex flex-column align-items-center justify-content-center mb-3">
+  <a href="/" class="btn btn-outline-secondary mt-3">Back</a>
+  <span class="m-2">*必填項目</span>
+  <span class="h4 ml-5">請輸入您的支出</span>
+
+  <form action="/records" method="POST" class="m-5">
+
+    <div id="newOnfrom" class="row d-flex flex-column align-items-center justify-content-center">
+      <div class="col-12 ">
+        <label for="name">名稱：</label>
+        <input id="name" type="text" name="name" style="height: 3rem;width:400px" placeholder="請輸入支出名稱">
+      </div>
+      <div class="col-12 m-5">
+        <label for="date">日期：</label>
+        <input type="date" id="date" name="date" style="height: 3rem;width:400px">
+      </div>
+      <div class="col-12 m-5">
+        <label for="select">類別：</label>
+
+        <select id="select" name="category" style="height: 3rem;width:400px">
+          <option value="" selected>----類別-----</option>
+          <option value="allObject">全部</option>
+          <option value="isLife">家居樂業</option>
+          <option value="isVechcle">交通出行</option>
+          <option value="isEntertainment">休閒娛樂</option>
+          <option value="'isFood">餐飲食品</option>
+          <option value="isMedical">醫療費用</option>
+          <option value="other">其它</option>
+
+        </select>
+      </div>
+      <div class="col-12 m-5">
+        <label for="amount" style="display:inline">金額：</label>
+        <input id="amount" name="amount" type="text" style="height: 3rem;width:400px" placeholder='＄'>
+      </div>
+      <div class="col-12 text-center">
+        <button id="exbtn" class="btn btn-primary" type="submit">新增支出</button>
+      </div>
+    </div>
+
+  </form>
+</div>

@@ -3,13 +3,10 @@ const Schema = mongoose.Schema
 
 const recordSchema = new Schema({
 
-  name: {
-    type: String,
-    required: true
-  },
+  name: String,
   date: String,
+  icon: String,
   amount: Number,
-  totalAmount: Number,
 })
 
 module.exports = mongoose.model('Record', recordSchema)

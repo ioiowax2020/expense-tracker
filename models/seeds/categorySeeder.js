@@ -7,28 +7,39 @@ db.once('open', () => {
 
   Record.create(
     {
-      category: '家居物業',
+      category: 'allObject',
+      category_name: '全部',
       icon: '<i class="fas fa-home"></i>',
     },
     {
-      category: '交通出行',
+      category: 'isLife',
+      category_name: '家居樂業',
+      icon: '<i class="fas fa-home"></i>',
+    },
+    {
+      category: 'isVechcle',
+      category_name: '交通出行',
       icon: '<i class="fas fa-shuttle-van"></i>',
     },
     {
-      category: '休閒娛樂',
+      category: 'isEntertainment',
+      category_name: '休閒娛樂',
       icon: '<i class="fas fa-grin-beam"></i>',
 
     },
     {
-      category: '餐飲食品',
+      category: 'isFood',
+      category_name: '餐飲食品',
       icon: '<i class="fas fa-utensils"></i>',
     },
     {
-      category: '醫療',
+      category: 'isMedical',
+      category_name: '醫療費用',
       icon: '<i class="fas fa-hospital"></i>',
     },
     {
-      category: '其它',
+      category: 'other',
+      category_name: '其它',
       icon: '<i class="fas fa-pen"></i>',
     },
   ).then(() => {

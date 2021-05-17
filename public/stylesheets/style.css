@@ -1,28 +1,25 @@
-.container{
-  width:600px;
-  min-width:360px;}
-
-.formList{
-  width:50%;  
+#mainPage{
+  max-width:768px;
 }
 
-.col-12{
-  height:75px;
-}
-.col-12,input{
-  
-  width:auto;
-}
-select{
-  width:200px;
+#cateGory{
+  width: 100%;
 }
 
-.inputForm{
-  padding:5px;
-  height:2rem;
+#total{
+  min-width: 576px;
+   margin: 10px;
+  padding: 10px;
+  flex: 20% 0 1;
 }
 
-#exbtn{
-  width:100%; }
+.totalMoney{
+  font-size: 70px;
+}
+#indexBtn{
+display: flex;
+justify-content:center;
+align-items: center;
+}
 
-  
+/* ---------new--------- */
