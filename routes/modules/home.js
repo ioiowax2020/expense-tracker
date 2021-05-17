@@ -5,17 +5,22 @@ const router = express.Router()
 const Category = require('../../models/category')
 const Record = require('../../models/record')
 
+const tools = require('../../models/seeds/tool')
+
+
 router.get('/', (req, res) => {
 
-  // return Category.find()
-  //   .lean()
-  //   .sort({ _id: 'asc' })
-  //   .then(categories => res.render('index', { categories }))
-  //   .catch(erroe => console.error(error))
+  const categoryOb = tools.categoryObject()
 
   return Record.find()
     .lean()
-    .then((records) => res.render('index', { records }))
+    .then((records) => {
+      const amountSum = tools.amountSum(records)
+
+      tools.categoryObject(records)
+
+      res.render('index', { records, amountSum, categoryOb })
+    })
     .catch(error => console.log('error'))
 
 })

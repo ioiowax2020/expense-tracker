@@ -1,6 +1,7 @@
 <div id="mainPage" class="container m-5 d-flex justify-content-center align-items-center">
   {{!-- ------category selection!!--- --}}
-  <form action="/" method="get">
+
+  <div class="d-flex flex-column">
 
     <select name="cate" value="cate" class="form-select-lg mb-3" id="cateGory">
       <option value="" selected>類別</option>
@@ -17,17 +18,17 @@
     <div id="total" class="mt-3">
       <div class="d-flex justify-content-between">
         <span class="h3">總金額 : </span>
-        <p class="totalMoney">$1234</p>
+        {{#if amountSum}} <p class="totalMoney">${{amountSum}}</p>{{/if}}
       </div>
       {{#each records}}
-      <div class="row" id="main">
 
-        <div class="col-8">
+      <div class="row">
+        <div class="col-1 h1 mx-auto">{{{this.icon}}}</div>
+        <div class="col-7">
           <table class="table table-striped">
             <tbody>
               <div class="row">
                 <tr>
-                  <div>{{{this.category}}}</div>
                   <td class="col-8">{{this.name}}
                     <div>{{this.date}}</div>
                   </td>
@@ -45,7 +46,9 @@
         </div>
       </div>
       {{/each}}
+
       <a href="/records/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
         style="align-items: center;">新增支出</a>
     </div>
+  </div>
 </div>
