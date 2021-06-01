@@ -6,18 +6,18 @@ const Category = require('../../models/category')
 const Record = require('../../models/record')
 
 
-//新增一筆資料
+//read
 router.get('/new', (req, res) => {
 
   res.render('new')
 
 })
 
-
+//create
 router.post('/', (req, res) => {
 
   const { name, date, amount, icon } = req.body
-  console.log(req.body)
+
   return Record.create({ name, date, amount, icon })
     .then((records) => res.redirect('/'))
     .catch(error => console.log(error))
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 
 
 
-//修改一筆特定資料
+//update
 router.get('/:id/edit', (req, res) => {
 
   const id = req.params.id
@@ -37,7 +37,7 @@ router.get('/:id/edit', (req, res) => {
 
 })
 
-
+//delete
 router.put('/:id', (req, res) => {
 
   const id = req.params.id

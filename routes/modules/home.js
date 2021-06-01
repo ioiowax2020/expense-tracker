@@ -2,24 +2,23 @@ const express = require('express')
 const category = require('../../models/category')
 const router = express.Router()
 
-const Category = require('../../models/category')
 const Record = require('../../models/record')
+const Category = require('../../models/category')
 
-const tools = require('../../models/seeds/tool')
-
+const tools = require('../../public/javascripts/tool')
 
 router.get('/', (req, res) => {
 
-  const categoryOb = tools.categoryObject()
-
   return Record.find()
     .lean()
-    .then((records) => {
+    .sort({ date: 'desc' })
+    .then(records => {
+
       const amountSum = tools.amountSum(records)
+      tools.CategoryObject(records)
 
-      tools.categoryObject(records)
+      res.render('index', { records, amountSum })
 
-      res.render('index', { records, amountSum, categoryOb })
     })
     .catch(error => console.log('error'))
 

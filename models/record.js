@@ -5,7 +5,7 @@ const recordSchema = new Schema({
 
   name: String,
   date: String,
-  icon: String,
+  category_name: String,
   amount: Number,
 })
 

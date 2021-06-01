@@ -1,45 +1,44 @@
-<div class="d-flex flex-column align-items-center justify-content-center mb-3">
+<div id="editPage" class="d-flex flex-column align-items-center justify-content-center mb-3">
   <a href="/" class="btn btn-outline-secondary mt-3">Back</a>
-  <span class="m-2">*必填項目</span>
-  <span class="h4 ml-5">請修改您的支出</span>
-
+  <span class="h4 mt-5">請修改您的支出</span>
 
   <form action="/records/{{records._id}}/?_method=PUT" method="POST" class="m-5">
 
-    <div id="newOnfrom" class="row d-flex flex-column align-items-center justify-content-center">
-      <div class="col-12 ">
-        <label for="name">名稱：</label>
-        <input value="{{records.name}}" id="name" type="text" name="name" style="height: 3rem;width:400px"
-          placeholder="請輸入支出名稱">
-      </div>
-      <div class="col-12 m-5">
-        <label for="date">日期：</label>
-        <input type="date" id="date" name="date" value="{{records.date}}" style="height: 3rem;width:400px">
-      </div>
-      <div class="col-12 m-5">
-        <label for="select">類別：</label>
-
-        <select id="select" name="category" style="height: 3rem;width:400px" value="{{records.category}}">
-          <option value="" selected>類別</option>
-          <option value="allObject">全部</option>
-          <option value="isLife">家居樂業</option>
-          <option value="isVechcle">交通出行</option>
-          <option value="isEntertainment">休閒娛樂</option>
-          <option value="'isFood">餐飲食品</option>
-          <option value="isMedical">醫療費用</option>
-          <option value="other">其它</option>
-
-        </select>
-      </div>
-      <div class="col-12 m-5">
-        <label for="amount" style="display:inline">金額：</label>
-        <input id="amount" name="amount" type="text" value="{{records.amount}}" style="height: 3rem;width:400px"
-          placeholder='＄'>
-      </div>
-      <div class="col-12 text-center">
-        <button id="exbtn" class="btn btn-primary" type="submit">送出修改</button>
-      </div>
+    <div class="input-group input-group-lg mb-4">
+      <label for="name" style="vertical-align: middle;" class="input-group-text">名稱</label>
+      <input id="name" class="form-control" value="{{records.name}}" type="text" name="name" placeholder=" 請輸入支出名稱"
+        required>
     </div>
+
+
+    <div class="input-group input-group-lg mb-4">
+      <label for="date" class="input-group-text">日期</label>
+      <input type="date" id="date" name="date" value="{{records.date}}" min="2020-01-01" class="form-control p-2"
+        style="font-family: Verdana, Geneva, Tahoma, sans-serif;" required>
+    </div>
+
+    <div class="input-group input-group-lg mb-4">
+      <label class="input-group-text" for="inputGroupSelect02">支出類別</label>
+      <select class="form-control" id="inputGroupSelect02">
+        <option>Choose...</option>
+        <option value="isLife" {{#if records.category}}selected{{/if}}>家居樂業</option>
+        <option value="isVechcle" {{#if records.category}}selected{{/if}}>交通出行</option>
+        <option value="isEntertainment" {{#if records.category}}selected{{/if}}>休閒娛樂</option>
+        <option value="isFood" {{#if records.category}}selected{{/if}}>餐飲食品</option>
+        <option value="isMedical" {{#if records.category}}selected{{/if}}>醫療費用</option>
+        <option value="other" {{#if records.category}}selected{{/if}}>其它</option>
+      </select>
+    </div>
+
+    <div class="input-group input-group-lg mb-4">
+      <label class="input-group-text" for="amount"> 金額</label>
+      <input id="amount" name="amount" value="{{records.amount}}" type="text" placeholder='＄' class="form-control"
+        required><span class="input-group-text">$</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-center mt-3">
+      <button id="exbtn" class="btn btn-primary" type="submit">送出修改</button>
+    </div>
+
 
   </form>
 </div>
