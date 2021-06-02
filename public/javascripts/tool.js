@@ -1,4 +1,5 @@
 
+
 const tools = {
 
   getAmountSum(records) {
@@ -8,6 +9,13 @@ const tools = {
     });
     return sum
   },
+  getValuefromfilter(filter) {
+    let newfilter = ''
+    newfilter = filter[0]
+    return newfilter
+
+  },
+
 }
 
 module.exports = tools

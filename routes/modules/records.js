@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
-const Category = require('../../models/category')
 const Record = require('../../models/record')
 
 
@@ -30,6 +28,7 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 
   const id = req.params.id
+
   return Record.findById(id)
     .lean()
     .then(records => res.render('edit', { records }))
@@ -37,12 +36,11 @@ router.get('/:id/edit', (req, res) => {
 
 })
 
-//delete
 router.put('/:id', (req, res) => {
 
   const id = req.params.id
   const { name, date, amount, category } = req.body
-
+  console.log(req.body)
   return Record.findById(id)
     .then(records => {
       records.name = name
@@ -57,7 +55,7 @@ router.put('/:id', (req, res) => {
 })
 
 
-//刪除一筆資料
+//delete
 router.delete('/:id', (req, res) => {
 
 

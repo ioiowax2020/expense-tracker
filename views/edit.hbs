@@ -21,12 +21,13 @@
       <label class="input-group-text" for="inputGroupSelect02">支出類別</label>
       <select class="form-control" id="inputGroupSelect02">
         <option>Choose...</option>
-        <option value="isLife" {{#if records.category}}selected{{/if}}>家居樂業</option>
-        <option value="isVechcle" {{#if records.category}}selected{{/if}}>交通出行</option>
-        <option value="isEntertainment" {{#if records.category}}selected{{/if}}>休閒娛樂</option>
-        <option value="isFood" {{#if records.category}}selected{{/if}}>餐飲食品</option>
-        <option value="isMedical" {{#if records.category}}selected{{/if}}>醫療費用</option>
-        <option value="other" {{#if records.category}}selected{{/if}}>其它</option>
+        <option value="isLife" {{#if (eq records.category_name 'isLife' ) }}selected{{/if}}>家居樂業</option>
+        <option value="isVechcle" {{#if (eq records.category_name 'isVechcle' ) }}selected{{/if}}>交通出行</option>
+        <option value="isEntertainment" {{#if (eq records.category_name 'isEntertainment' ) }}selected{{/if}}>休閒娛樂
+        </option>
+        <option value="isFood" {{#if (eq records.category_name 'isFood' ) }}selected{{/if}}>餐飲食品</option>
+        <option value="isMedical" {{#if (eq records.category_name 'isMedical' ) }}selected{{/if}}>醫療費用</option>
+        <option value="other" {{#if (eq records.category_name 'other' ) }}selected{{/if}}>其它</option>
       </select>
     </div>
 

@@ -1,11 +1,10 @@
 const express = require('express')
-const category = require('../../models/category')
 const router = express.Router()
 
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 
-const { getAmountSum, getCategoryIcon } = require('../../public/javascripts/tool')
+const { getAmountSum } = require('../../public/javascripts/tool')
 
 
 router.get('/', (req, res) => {
@@ -18,7 +17,9 @@ router.get('/', (req, res) => {
 
       const amountSum = getAmountSum(records)
 
-      res.render('index', { records, amountSum })
+
+
+      res.render('index', { records, amountSum, categories })
     })
 
     .catch(error => console.log('error'))

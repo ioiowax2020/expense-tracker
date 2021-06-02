@@ -3,20 +3,43 @@
 
   <div id="total">
     <div class="d-flex justify-content-between">
-      <span class="h3">總金額 : </span>
+      {{#if amountSum}} <span class="h3">總金額 : </span>{{/if}}
       {{#if amountSum}} <p class="totalMoney">${{amountSum}}</p>{{/if}}
     </div>
-    <div class="div" id="categoryOnmain">
-      <select name="category" value="category" class="form-select-lg m-3" style="width: 50%;height:2em">
-        <option value="default" selected>類別</option>
-        <option value="isLife">家居樂業</option>
-        <option value="isVechcle">交通出行</option>
-        <option value="isEntertainment">休閒娛樂</option>
-        <option value="'isFood">餐飲食品</option>
-        <option value="isMedical">醫療費用</option>
-        <option value="other">其它</option>
-      </select>
+    <div class="m-auto">
+      <form action="/filters" method="get">
+        <select name="category" value="category" class="form-select-lg m-3" style="width: 50%;height:2em"
+          onchange="submit()">
+          <option value="default">類別</option>
+          <option value="isLife" {{#if (eq category 'isLife' )}}selected{{/if}}> 家居樂業</option>
+          <option value="isVechcle" {{#if (eq category 'isVechcle' )}}selected{{/if}}> 交通出行</option>
+          <option value="isEntertainment" {{#if (eq category 'isEntertainment' )}}selected{{/if}}> 休閒娛樂</option>
+          <option value="isFood" {{#if (eq category 'isFood' )}}selected{{/if}}> 餐飲食品</option>
+          <option value="isMedical" {{#if (eq category 'isMedical' )}}selected{{/if}}> 醫療費用</option>
+          <option value="other" {{#if (eq category 'other' )}}selected{{/if}}> 其它</option>
+        </select>
+      </form>
     </div>
+
+    {{#is error 'error'}}
+    <div class="row">
+      <div class="col-12 mt-3">
+        <a href="/" class="btn btn-outline-success backtoLast" style="float: right;"><i class="fas fa-backward"></i>
+          回到上一頁</a>
+      </div>
+      <div class="col-6">
+        <div class="alert alert-light d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+            <use xlink:href="#exclamation-triangle-fill" />
+          </svg>
+          <div>
+            <i class="fas fa-exclamation-circle" style="color: rgb(235, 96, 96);"></i> 您還未新增此支出類別！
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/is}}
+
     {{#each records}}
     <div class="row mx-auto">
       <div class="col-8">

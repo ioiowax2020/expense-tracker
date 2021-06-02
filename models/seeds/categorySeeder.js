@@ -36,7 +36,7 @@ db.once('open', () => {
     {
       category_name: 'other',
       category: '其它',
-      icon: `<i class="fas fa-pen"></i>`,
+      icon: ``,
     },
   ).then(() => {
     console.log('categorySeeds done!')

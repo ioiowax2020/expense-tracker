@@ -3,10 +3,22 @@ const Schema = mongoose.Schema
 
 const recordSchema = new Schema({
 
-  name: String,
-  date: String,
-  category_name: String,
-  amount: Number,
+  name: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  category_name: {
+    type: String,
+    required: true
+  },
+  amount: {
+    type: Number,
+    required: true
+  },
 })
 
 module.exports = mongoose.model('Record', recordSchema)
