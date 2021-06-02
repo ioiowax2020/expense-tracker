@@ -20,7 +20,7 @@
 <span>1.開啟終端機，輸入以下的指令並執行</span>
 
 ```bash
-git clone 
+git clone https://github.com/ioiowax2020/expense-tracker.git
 ```
 
 <span>2.安裝相關專案工具</span>
