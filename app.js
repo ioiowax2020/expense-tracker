@@ -13,9 +13,6 @@ const routes = require('./routes')
 require('./config/mongoose')
 
 
-
-
-
 app.engine('hbs',
   exphbs({
     helpers: multihelpers, //handlebars help
