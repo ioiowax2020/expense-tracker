@@ -5,21 +5,22 @@ const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 
-const tools = require('../../public/javascripts/tool')
+const { getAmountSum, getCategoryIcon } = require('../../public/javascripts/tool')
+
 
 router.get('/', (req, res) => {
+  Promise.all([Record.find().lean().sort({ date: 'desc' }),
+  Category.find().lean()])
 
-  return Record.find()
-    .lean()
-    .sort({ date: 'desc' })
-    .then(records => {
+    .then(results => {
+      const records = results[0]
+      const categories = results[1]
 
-      const amountSum = tools.amountSum(records)
-      tools.CategoryObject(records)
+      const amountSum = getAmountSum(records)
 
       res.render('index', { records, amountSum })
-
     })
+
     .catch(error => console.log('error'))
 
 })

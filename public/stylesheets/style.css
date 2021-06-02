@@ -2,9 +2,6 @@
   max-width:768px;
 }
 
-#cateGory{
-  width: 100%;
-}
 
 #total{
   min-width: 576px;
@@ -15,8 +12,7 @@
 
 .totalMoney{
   font-size: 70px;
+  color: rgb(255, 153, 0);
 }
 
-
-/* ---------new--------- */
 

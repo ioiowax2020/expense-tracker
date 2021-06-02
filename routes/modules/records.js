@@ -16,9 +16,9 @@ router.get('/new', (req, res) => {
 //create
 router.post('/', (req, res) => {
 
-  const { name, date, amount, icon } = req.body
-
-  return Record.create({ name, date, amount, icon })
+  const { name, date, amount, category_name } = req.body
+  console.log(req.body)
+  return Record.create({ name, date, amount, category_name })
     .then((records) => res.redirect('/'))
     .catch(error => console.log(error))
 
