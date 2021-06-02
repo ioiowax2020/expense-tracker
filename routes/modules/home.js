@@ -17,8 +17,6 @@ router.get('/', (req, res) => {
 
       const amountSum = getAmountSum(records)
 
-
-
       res.render('index', { records, amountSum, categories })
     })
 

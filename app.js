@@ -3,7 +3,7 @@ const app = express()
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 const hbshelpers = require('handlebars-helpers')
 const multihelpers = hbshelpers()
 
