@@ -2,11 +2,10 @@ const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
-const PORT = process.env.PORT || 3000
 const hbshelpers = require('handlebars-helpers')
 const multihelpers = hbshelpers()
 
-
+const PORT = process.env.PORT || 3000
 
 const routes = require('./routes')
 
