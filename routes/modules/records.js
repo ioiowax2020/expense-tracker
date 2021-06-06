@@ -15,10 +15,10 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
 
   const userId = req.user._id
-  const { name, date, amount, category_name } = req.body
+  const { name, date, amount, category_name, merchant } = req.body
   console.log(req.body)
 
-  return Record.create({ name, date, amount, category_name, userId })
+  return Record.create({ name, date, amount, category_name, merchant, userId })
     .then((records) => res.redirect('/'))
     .catch(error => console.log(error))
 
@@ -32,7 +32,7 @@ router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
 
-  return Record.findone({ _id, userId })
+  return Record.findOne({ _id, userId })
     .lean()
     .then(records => res.render('edit', { records }))
     .catch(error => console.log(error))
@@ -44,15 +44,16 @@ router.put('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
 
-  const { name, date, amount, category } = req.body
+  const { name, date, amount, category_name, merchant } = req.body
   console.log(req.body)
 
-  return Record.findone({ _id, userId })
+  return Record.findOne({ _id, userId })
     .then(records => {
       records.name = name
       records.date = date
       records.amount = amount
-      records.category = category
+      records.category_name = category_name
+      records.merchant = merchant
       return records.save()
     })
     .then(() => res.redirect('/'))
