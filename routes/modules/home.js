@@ -8,7 +8,8 @@ const { getAmountSum } = require('../../public/javascripts/tool')
 
 
 router.get('/', (req, res) => {
-  Promise.all([Record.find().lean().sort({ date: 'desc' }),
+  const userId = req.user._id
+  Promise.all([Record.find({ userId }).lean().sort({ date: 'desc' }),
   Category.find().lean()])
 
     .then(results => {

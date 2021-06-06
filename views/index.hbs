@@ -2,10 +2,13 @@
   {{!-- ------category selection!!--- --}}
 
   <div id="total">
+
+
     <div class="d-flex justify-content-between">
       {{#if amountSum}} <span class="h3">總金額 : </span>{{/if}}
       {{#if amountSum}} <p class="totalMoney">${{amountSum}}</p>{{/if}}
     </div>
+    {{#if amountSum}} {{!-- //如果有資料才會顯示 --}}
     <div class="m-auto">
       <form action="/filters" method="get">
         <select name="category" value="category" class="form-select-lg m-3" style="width: 50%;height:2em"
@@ -20,6 +23,7 @@
         </select>
       </form>
     </div>
+    {{/if}} {{!-- //如果有資料才會顯示 --}}
 
     {{#is error 'error'}}
     <div class="row">
@@ -75,9 +79,10 @@
     </div>
     {{/each}}
 
+
     <div class="d-flex align-items-center justify-content-center mt-3">
       <a href="/records/new" class="btn btn-info btn-lg">新增支出</a>
     </div>
-  </div>
 
+  </div>
 </div>
