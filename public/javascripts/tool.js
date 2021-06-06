@@ -15,7 +15,6 @@ const tools = {
     return newfilter
 
   },
-
 }
 
 module.exports = tools

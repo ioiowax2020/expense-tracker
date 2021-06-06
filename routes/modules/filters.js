@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
       const record = results[0]
       const categories = results[1]
-      let filterRecord = []
+      const filterRecord = []
 
 
       filterRecord.push(
@@ -33,17 +33,56 @@ router.get('/', (req, res) => {
       const amountSum = getAmountSum(records)
 
 
-      if (!records.length) {
+      if (category === 'default') {
 
+        res.redirect('/')
+
+      } else if (!records.length) {
         res.render('index', { error: 'error', categories, category, userId })
       }
 
       return res.render('filter', { records, amountSum, categories, category, userId })
 
-
     })
+
     .catch(error => console.log('error'))
 })
+
+
+
+router.post('/', (req, res) => {
+
+  const month = req.body.month
+  const userId = req.user._id
+
+  console.log(month)
+
+  Promise.all([
+    Record.find({ userId }).lean().sort({ date: 'desc' }),
+    Category.find().lean()
+  ])
+    .then(results => {
+
+      const record = results[0]
+      const categories = results[1]
+      const filterMonth = []
+
+
+      filterMonth.push(
+        record.filter(records => records.date.split('-')[1] === month))
+
+      const records = getValuefromfilter(filterMonth)
+      const amountSum = getAmountSum(records)
+
+
+      return res.render('filter', { month, records, amountSum })
+
+    })
+
+
+    .catch(error => console.log('error'))
+})
+
 
 
 module.exports = router

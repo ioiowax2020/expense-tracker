@@ -3,10 +3,11 @@
 
   <div id="total">
 
+    {{#if amountSum}}{{!-- 當user 沒有資料時，把總金額隱蔽 --}}
 
     <div class="d-flex justify-content-between">
-      {{#if amountSum}} <span class="h3">總金額 : </span>{{/if}}
-      {{#if amountSum}} <p class="totalMoney">${{amountSum}}</p>{{/if}}
+      <span class="h3">總金額 : </span>
+      <p class="totalMoney">${{amountSum}}</p>
     </div>
 
     <div class="m-auto">
@@ -22,7 +23,28 @@
           <option value="other" {{#if (eq category 'other' )}}selected{{/if}}> 其它</option>
         </select>
       </form>
+      {{!-- mounth --}}
+      <form action="/filters" method="post">
+        <select name="month" value="month" class="form-select-lg m-3" style="width: 50%;height:2em" onchange="submit()">
+
+          <option value="default">月份</option>
+          <option value="01" {{#if (eq category 'isLife' )}}selected{{/if}}> 1月</option>
+          <option value="02" {{#if (eq category 'isVechcle' )}}selected{{/if}}> 2月</option>
+          <option value="03" {{#if (eq category 'March' )}}selected{{/if}}>3月</option>
+          <option value="04" {{#if (eq category 'isFood' )}}selected{{/if}}> 4月</option>
+          <option value="05" {{#if (eq category 'isMedical' )}}selected{{/if}}> 5月</option>
+          <option value="06" {{#if (eq category 'other' )}}selected{{/if}}>6月</option>
+          <option value="07" {{#if (eq category 'other' )}}selected{{/if}}>7月</option>
+          <option value="08" {{#if (eq category 'other' )}}selected{{/if}}>8月</option>
+          <option value="09" {{#if (eq category 'other' )}}selected{{/if}}>9月</option>
+          <option value="10" {{#if (eq category 'other' )}}selected{{/if}}>10月</option>
+          <option value="11" {{#if (eq category 'other' )}}selected{{/if}}>11月</option>
+          <option value="12" {{#if (eq category 'other' )}}selected{{/if}}>12月</option>
+
+        </select>
+      </form>
     </div>
+    {{/if}}
 
     {{#is error 'error'}}
     <div class="row">

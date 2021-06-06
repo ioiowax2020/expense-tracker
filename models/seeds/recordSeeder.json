@@ -2,42 +2,42 @@
   "results": [
     {
       "name": "捷運",
-      "date": "2020/12/23",
+      "date": "2020-12-23",
       "category_name": "isVechcle",
       "amount": 45,
       "merchant": "台北捷運"
     },
     {
       "name": "午餐",
-      "date": "2020/12/25",
+      "date": "2020-12-25",
       "category_name": "isFood",
       "amount": 150,
       "merchant": "7-11"
     },
     {
       "name": "卡拉ＯＫ",
-      "date": "2020/12/25",
+      "date": "2020-12-25",
       "category_name": "isEntertainment",
       "amount": 690,
       "merchant": "好樂迪"
     },
     {
       "name": "買衣服",
-      "date": "2020/12/30",
+      "date": "2020-12-30",
       "category_name": "isEntertainment",
       "amount": 1500,
       "merchant": "UNIQLO"
     },
     {
       "name": "買書",
-      "date": "2020/12/31",
+      "date": "2020-12-31",
       "category_name": "isEntertainment",
       "amount": 800,
       "merchant": "誠品書店"
     },
     {
       "name": "PCR檢測",
-      "date": "2021/01/01",
+      "date": "2021-01-01",
       "category_name": "isMedical",
       "amount": 10000,
       "merchant": "台北醫院"
