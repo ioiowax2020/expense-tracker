@@ -7,7 +7,11 @@ const flash = require('connect-flash')
 const hbshelpers = require('handlebars-helpers')
 const multihelpers = hbshelpers()
 
-const PORT = process.env.PORT || 3000
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
+const PORT = process.env.PORT
 
 const routes = require('./routes')
 
@@ -23,7 +27,7 @@ app.engine('hbs',
   }))
 app.set('view engine', 'hbs')
 app.use(session({
-  secret: 'ThisIsMySecretOnexpenseTracker',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
