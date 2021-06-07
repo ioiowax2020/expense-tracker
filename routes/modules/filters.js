@@ -38,10 +38,10 @@ router.get('/', (req, res) => {
         res.redirect('/')
 
       } else if (!records.length) {
-        res.render('index', { error: 'error', categories, category, userId })
+        res.render('index', { error: 'error', categories, category })
       }
 
-      return res.render('filter', { records, amountSum, categories, category, userId })
+      return res.render('filter', { records, amountSum, categories, category })
 
     })
 
@@ -74,6 +74,10 @@ router.post('/', (req, res) => {
       const records = getValuefromfilter(filterMonth)
       const amountSum = getAmountSum(records)
 
+      if (!filterMonth) {
+
+        res.render('filter', { err: 'err', categories, month })
+      }
 
       return res.render('filter', { month, records, amountSum })
 
