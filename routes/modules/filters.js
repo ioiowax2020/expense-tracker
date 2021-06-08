@@ -74,9 +74,9 @@ router.post('/', (req, res) => {
       const records = getValuefromfilter(filterMonth)
       const amountSum = getAmountSum(records)
 
-      if (!filterMonth) {
+      if (!records) {
 
-        res.render('filter', { err: 'err', categories, month })
+        res.render('index', { error: 'error', categories, month })
       }
 
       return res.render('filter', { month, records, amountSum })
