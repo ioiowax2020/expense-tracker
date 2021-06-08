@@ -1,4 +1,4 @@
-<h1>私の記帳本- Expense-tracker</h1>
+<h1>私の記帳本2.0- Expense-tracker2.0</h1>
 
 <span>使用網路前端框架Node.js與後端MondgoDB資料庫的記帳網站。</span>
 
@@ -7,14 +7,14 @@
 ```bash
 
 ```
-<li>可以新增支出費用，表單選項有 名稱、日期、類別、金額。</li>
-<li>首頁有各項費用的總和。</li>
-<li>使用者可以使用分類篩選支出項目。</li>
+<li>可以新增支出費用，表單選項有 名稱、日期、類別、金額、店家。</li>
+<li>首頁有費用的總和。</li>
+<li>可以使用費用類別和月搜尋支出費用，總金額也會個別加總。</li>
 <li>每項支出項目可檢視詳細資訊，並操作編輯、刪除。</li>
 
 <h2>專案畫面</h2>
 
-![image](https://raw.githubusercontent.com/ioiowax2020/expense-tracker/master/public/stylesheets/expense-tracker.png)
+![image]()
 
 <h2>安裝</h2>
 <span>1.開啟終端機，輸入以下的指令並執行</span>
