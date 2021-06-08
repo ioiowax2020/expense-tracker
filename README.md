@@ -14,7 +14,7 @@
 
 <h2>專案畫面</h2>
 
-![image]()
+![image](https://raw.githubusercontent.com/ioiowax2020/expense-tracker/master/public/stylesheets/2.0.png)
 
 <h2>安裝</h2>
 <span>1.開啟終端機，輸入以下的指令並執行</span>
